@@ -15,6 +15,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.androidsamplejetpackcompose.components.autoSlider.AutoSliding
+import com.example.androidsamplejetpackcompose.components.listItem.FakeData
+import com.example.androidsamplejetpackcompose.components.listItem.ListHorizontal
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @OptIn(ExperimentalPagerApi::class)
@@ -26,6 +28,7 @@ fun HomeScreen() {
             .background(color = Color.White)
     ) {
         AutoSliding()
+        ListHorizontal(list = FakeData())
     }
 }
 

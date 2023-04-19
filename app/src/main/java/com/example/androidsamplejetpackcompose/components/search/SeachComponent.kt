@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -43,7 +44,7 @@ fun SearchComponent() {
                 value = newText
             },
             placeholder = { Text(text = "Tìm kiếm") },
-            modifier = Modifier
+            modifier = Modifier.padding(10.dp)
                 .border(1.dp, Color.Green, CircleShape).weight(4f),
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.White,
