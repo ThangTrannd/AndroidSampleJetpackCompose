@@ -22,26 +22,35 @@ import androidx.compose.ui.unit.sp
 import com.example.androidsamplejetpackcompose.model.ItemDetail
 
 @Composable
-fun ListHorizontal(list : List<ItemDetail>){
-    LazyRow(modifier = Modifier.padding(start = 10.dp,top = 10.dp,bottom = 10.dp)){
-        items(items = list, itemContent = {item ->
-            ItemList(data = item)
-        })
+fun ListHorizontal(title : String ,list : List<ItemDetail>){
+    Column {
+        Text(text = title, modifier = Modifier.padding(start = 10.dp, bottom = 5.dp), style = TextStyle(fontSize = 20.sp))
+        LazyRow(modifier = Modifier.padding(start = 10.dp,top = 10.dp,bottom = 10.dp)){
+            items(items = list, itemContent = {item ->
+                ItemList(data = item)
+            })
+        }
     }
 }
 
 @Composable
 fun ItemList(data : ItemDetail){
-    Box (modifier = Modifier.padding(end = 10.dp).width(150.dp).height(200.dp).clip(
-        RoundedCornerShape(5.dp)
-    )){
+    Box (modifier = Modifier
+        .padding(end = 10.dp)
+        .width(150.dp)
+        .height(200.dp)
+        .clip(
+            RoundedCornerShape(5.dp)
+        )){
         Image(
             painter = painterResource(id = data.image),
             contentDescription = "image",
             contentScale = ContentScale.FillBounds,
             modifier = Modifier.fillMaxSize()
         )
-        Column(modifier = Modifier.align(Alignment.BottomStart).padding(5.dp)){
+        Column(modifier = Modifier
+            .align(Alignment.BottomStart)
+            .padding(5.dp)){
             Text(text = data.title, style = TextStyle(fontSize = 15.sp, color = Color.White))
             Text(text = data.view ,  style = TextStyle(fontSize = 15.sp, color = Color.White))
         }
@@ -51,5 +60,5 @@ fun ItemList(data : ItemDetail){
 @Preview(showBackground = true)
 @Composable
 fun ListHorizontalPreview(){
-    ListHorizontal(list = FakeData())
+    ListHorizontal("Short",list = FakeData())
 }
