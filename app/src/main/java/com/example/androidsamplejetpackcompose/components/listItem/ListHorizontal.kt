@@ -21,7 +21,7 @@ import com.example.androidsamplejetpackcompose.model.ItemDetail
 
 @Composable
 fun ListHorizontal(title : String ,list : List<ItemDetail>){
-    Column {
+    Column (modifier = Modifier.padding(top = 10.dp)){
         Text(text = title, modifier = Modifier.padding(start = 10.dp, bottom = 5.dp), style = TextStyle(fontSize = 20.sp))
         LazyRow(modifier = Modifier.padding(start = 10.dp,top = 10.dp,bottom = 10.dp)){
             items(items = list, itemContent = {item ->
@@ -58,5 +58,5 @@ fun ItemListHorizontal(data : ItemDetail){
 @Preview(showBackground = true)
 @Composable
 fun ListHorizontalPreview(){
-    ListHorizontal("Short",list = FakeData())
+    ListHorizontal("ListHorizontal",list = FakeData())
 }

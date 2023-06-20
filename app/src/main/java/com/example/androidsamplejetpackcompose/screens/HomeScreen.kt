@@ -3,6 +3,8 @@ package com.example.androidsamplejetpackcompose.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -20,15 +22,20 @@ import com.example.androidsamplejetpackcompose.R
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun HomeScreen() {
-    val scrollState = rememberScrollState()
-    Column(
+    LazyColumn(
         modifier = Modifier
-            .verticalScroll(scrollState)
             .background(color = Color.White)
     ) {
-        AutoSliding()
-        ListHorizontal("Short",list = FakeData())
+        item {
+            AutoSliding()
+        }
 
+        item {
+            ListHorizontal("Horizontal List", list = FakeData())
+        }
+        item {
+            ListVertical("Vertical List", list = FakeData2())
+        }
     }
 }
 
