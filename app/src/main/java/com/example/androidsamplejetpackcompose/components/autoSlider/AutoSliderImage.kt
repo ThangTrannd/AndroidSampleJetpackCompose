@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
+import coil.compose.rememberImagePainter
 import com.example.androidsamplejetpackcompose.R
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.delay
@@ -80,14 +81,15 @@ fun AutoSliding() {
                         .align(Alignment.Center)
                 ) {
                     Image(
-                        painter = painterResource(
-                            id = when (page) {
-                                1 -> R.drawable.sample_banner
-                                2 -> R.drawable.banner_demo2
-                                3 -> R.drawable.sample_banner
-                                4 -> R.drawable.banner_demo2
-                                5 -> R.drawable.sample_banner
-                                else -> R.drawable.banner_demo2
+                        painter = rememberImagePainter(
+                            when (page) {
+                                1 -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Fdsa-self-paced-thumbnail.png&w=1920&q=75"
+                                2 -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Fdata-science-live-thumbnail.png&w=1920&q=75"
+                                3 -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Ffull-stack-node-thumbnail.png&w=1920&q=75"
+                                4 -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Fdsa-self-paced-thumbnail.png&w=1920&q=75"
+                                5 -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Fdata-science-live-thumbnail.png&w=1920&q=75"
+                                6 -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Ffull-stack-node-thumbnail.png&w=1920&q=75"
+                                else -> "https://practice.geeksforgeeks.org/_next/image?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fimg-practice%2Fbanner%2Ffull-stack-node-thumbnail.png&w=1920&q=75"
                             }
                         ),
                         contentDescription = "Image",
